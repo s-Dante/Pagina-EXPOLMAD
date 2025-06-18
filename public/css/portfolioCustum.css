@@ -1,0 +1,626 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap'); /*Títulos*/
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan&display=swap'); /*Campos, botones */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap'); /*List box, sidebad*/
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.card-portfolio-container
+{
+    width: 25rem;
+    margin: 1rem;
+    /*height: 512px;
+    position: absolute;
+    top: 14%;
+    left: 15%; */
+    cursor: pointer;
+}
+
+.card-portfolio
+{
+    width: 20rem;
+    height: 20rem;
+    flex-shrink: 0;
+    border: 1px solid #5170ED;
+    background: rgba(217, 217, 217, 0.00);
+    border-radius: 2rem;
+    transition: all 180ms ease-out;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.card-portfolio:hover
+{
+    border: 0.2rem solid #F558E5;
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 1rem 0.2rem rgba(81, 112, 237, 0.45);
+    /*width: 530px;
+    height: 530px;*/
+    transform: scale(1.05);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*.card-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border-radius: 2rem;
+    filter: grayscale(0%);
+    transition: all 180ms ease-out;
+    position:relative;
+    z-index:-1;
+    display:block;
+}
+.card-portfolio:hover .card-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    filter: grayscale(60%);
+}*/
+
+.card-portfolio-filter
+{
+    height: 100%;
+    width: 100%;
+    display:inline-block;
+    border-radius: 2rem;
+    position: relative;
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.card-portfolio:hover .card-portfolio-filter
+{
+    border-radius: 2rem;
+    background: -moz-linear-gradient(top, rgba(77,105,143,1) 0%, rgba(8,35,105,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(77,105,143,1)), color-stop(100%,rgba(8,35,105,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(180deg, rgba(77,105,143,1) 0%, rgba(8,35,105,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(77,105,143,1) 0%,rgba(8,35,105,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(77,105,143,1) 0%,rgba(8,35,105,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(77,105,143,0) 0%,rgba(8,35,105,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.card-text-portfolio
+{
+    color: #ffffff00;
+    text-align: left;
+    font-family: Bruno Ace;
+    font-size: 1.7rem;
+    font-style: normal;
+    line-height: normal;
+    margin: 0.6rem;
+    transition: all 0.3s ease-out;
+}
+
+.card-portfolio:hover .card-text-portfolio
+{   
+    font-style: normal;
+    color: #ffffff;
+    margin-bottom: 0rem;
+    /*font-weight: 500;
+    position: absolute;
+    left: 6%;
+    top: 85%;*/
+}
+
+.card-portfolio-subtittle
+{
+    font-family: Kodchasan;
+    font-size: 1.7rem;
+    color: #18e2ed00;
+    margin: 0.6rem;
+    transition: all 0.3s ease-out;
+}
+
+.card-portfolio:hover .card-portfolio-subtittle{
+    font-style: normal;
+    color: #18E4ED;
+    margin-top: 0rem;
+}
+/*videogame card*/
+
+.card-videojuegos-portfolio
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border: 1px solid rgba(100, 184, 248, 0.70);
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 40px 3px rgba(100, 184, 248, 0.3);
+   /* position: absolute;
+    top: 14%;
+    right: 15%; */
+    transition: all 180ms ease-out;
+    cursor: pointer;
+}
+
+.card-videojuegos-portfolio:hover
+{
+    border: 1px solid rgba(88, 144, 224, 0.70);
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 30px 3px rgba(100, 184, 248, 0.45);
+    /*width: 530px;
+    height: 530px;*/
+    transform: scale(1.05);
+
+    right: 14%;
+}
+
+.card-videojuegos-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background: rgba(211, 211, 211, 0) 50% / cover no-repeat;
+    mix-blend-mode: luminosity;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: all 180ms ease-out;
+}
+
+.card-videojuegos-portfolio:hover .card-videojuegos-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background: lightgray 50% / cover no-repeat;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-vid-text-portfolio 
+{
+    color: #64B8F8;
+    text-align: center;
+    text-shadow: 0px 0px 13px #5890E0;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    left: 14%;
+    top: 85%;
+    z-index: 3 !important;
+    transition: opacity 80ms ease-out;
+    transition: text-shadow 80ms ease-out;
+}
+
+.card-videojuegos-portfolio:hover .card-vid-text-portfolio
+{
+    color: #E5F4FF;
+    text-align: center;
+    text-shadow: 0px 0px 13px #64B8F8;
+    font-family: Inter;
+    
+    font-style: normal;
+    
+    line-height: normal;
+    opacity: 0.8;
+    /*position: absolute;
+    left: 6%;
+    top: 85%;
+    font-weight: 500;
+    font-size: 40px;*/
+} 
+
+.card-vid-shadow-text-portfolio
+{
+    width: 248px;
+    height: 3px;
+    flex-shrink: 0;
+    border: 1px solid #64B8F8;
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 44px 10px rgba(100, 184, 248, 0.92);
+    filter: blur(7px);
+    position: absolute;
+    left: 15%;
+    top: 90%;
+    z-index: 4 !important;
+}
+
+.card-videojuegos-portfolio:hover .card-vid-shadow-text-portfolio
+{
+    border: 1px solid #64B8F8;
+    position: absolute;
+    left: 6%;
+    top: 90%;
+}
+
+/*Rv Card*/
+
+.card-rv-portfolio
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border: 1px solid rgba(120, 98, 245, 0.70);
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 40px 3px rgba(120, 98, 245, 0.3);
+    /*position: absolute;
+    top: 53%;
+    left: 15%;*/
+    transition: all 180ms ease-out;
+    cursor: pointer;
+}
+
+.card-rv-portfolio:hover
+{
+    /*width: 530px;
+    height: 530px;*/
+    transform: scale(1.05);
+    border: 1px solid rgba(120, 98, 245, 0.70);
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 30px 3px rgba(120, 98, 245, 0.45);
+}
+
+.card-rv-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background: rgba(211, 211, 211, 0) 50% / cover no-repeat;
+    mix-blend-mode: luminosity;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-rv-portfolio:hover .card-rv-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background: rgba(211, 211, 211, 0) 50% / cover no-repeat;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-rv-text-portfolio 
+{
+    color: #7862F5;
+    text-shadow: 0px 0px 13px #7862F5;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    left: 14%;
+    top: 73%;
+    z-index: 3 !important;
+    transition: opacity 80ms ease-out;
+    transition: text-shadow 80ms ease-out;
+}
+
+.card-rv-portfolio:hover .card-rv-text-portfolio
+{
+    color: #F2E5FF;
+    text-shadow: 0px 0px 13px #F6F2FA;
+    font-family: Inter;
+    /*font-size: 40px;*/
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.8;
+    position: absolute;
+    left: 6%;
+    top: 73%;
+} 
+
+.card-rv-shadow-text-portfolio
+{
+    width: 153px;
+    height: 3px;
+    flex-shrink: 0;
+    border: 1px solid #7862F5;
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 53px 10px #7862F5;
+    filter: blur(7px);
+    position: absolute;
+    left: 15%;
+    top: 85%;
+    z-index: 4 !important;
+}
+
+.card-rv-portfolio:hover .card-rv-shadow-text-portfolio
+{
+    border: 1px solid #F6F2FA;
+    position: absolute;
+    left: 6%;
+    top: 90%;
+}
+
+/*Progra Card*/
+
+.card-progra-portfolio
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border: 1px solid rgba(62, 149, 240, 0.70);
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 40px 3px rgba(62, 149, 240, 0.3);
+   /* position: absolute;
+    top: 53%;
+    right: 15%;*/
+    transition: all 180ms ease-out;
+    cursor: pointer;
+}
+
+.card-progra-portfolio:hover
+{
+    /*width: 530px;
+    height: 530px;*/
+    transform: scale(1.05);
+    right: 14%;
+    border: 1px solid rgba(62, 149, 240, 0.70);
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 30px 3px rgba(62, 149, 240, 0.45);
+}
+
+
+.card-progra-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background: rgba(211, 211, 211, 0) 50% / cover no-repeat;
+    mix-blend-mode: luminosity;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: all 180ms ease-out;
+}
+
+.card-progra-portfolio:hover .card-progra-portfolio-img
+{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background: rgba(211, 211, 211, 0) 50% / cover no-repeat;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.card-progra-text-portfolio 
+{
+    color: #3E95F0;
+    text-shadow: 0px 0px 13px #5BD4EF;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    left: 15%;
+    top: 83%;
+    z-index: 3 !important;
+    transition: opacity 80ms ease-out;
+    transition: text-shadow 80ms ease-out;
+}
+
+.card-progra-portfolio:hover .card-progra-text-portfolio
+{
+    color: #EAF4FF;
+    text-shadow: 0px 0px 13px #3E95F0;
+    font-family: Inter;
+    /*font-size: 40px;*/
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.8;
+    position: absolute;
+    left: 6%;
+    top: 83%;
+} 
+
+.card-progra-shadow-text-portfolio
+{
+    width: 245px;
+    height: 3px;
+    flex-shrink: 0;
+    border: 1px solid #3E95F0;
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 44px 10px #3E95F0;
+    filter: blur(7px);
+    position: absolute;
+    left: 15%;
+    top: 90%;
+    z-index: 4 !important;
+}
+
+.card-progra-portfolio:hover .card-progra-shadow-text-portfolio
+{
+    border: 1px solid #3E95F0;
+    position: absolute;
+    left: 6%;
+    top: 87%;
+}
+
+@media only screen and (max-width: 767px)
+{
+    .card-progra-text-portfolio, .card-arte-text-portfolio, .card-rv-text-portfolio, .card-vid-text-portfolio
+    {
+        font-size: 2.3rem;
+    }
+
+    .card-progra-text-portfolio:hover, .card-arte-text-portfolio:hover, .card-rv-text-portfolio:hover, .card-vid-text-portfolio:hover
+    {
+        font-size: 2.7rem;
+    }
+}
+
+.container-subjects
+{
+   
+    width: 80%;
+    height: 79%;
+    position: absolute;
+    top: 12%;
+    left: 50%; 
+    transform: translate(-50%, 0%);
+}
+
+tr
+{
+    height: 30%; 
+}
+
+td
+{
+    position: relative;
+    height: 0%;
+    
+}
+
+/* No se quien hizo este translate pero te odio, con amor mercy pd eso no hace
+td:nth-child(2n+1) {
+    transform: translateX(27px); /* Mueve las celdas hacia la derecha */
+
+
+/*
+td:nth-child(2n) {
+    transform: translateX(-27px); /* Mueve las celdas hacia la izquierda */
+
+
+
+
+/*proyecto vista*/
+.img-proj-lmad
+{
+    width: 148.23px;
+    height: 78px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px)
+{
+    .space-btns, #img-lmad {
+        display: none;
+    }
+}
+
+.header-gif-expo-proj
+{
+    width: 100%;
+    height: 100%;
+    opacity: 0.18;
+    background: lightgray 50% / cover no-repeat;
+    mix-blend-mode: normal;
+    z-index: 0 !important;
+    object-fit: cover;
+    filter: blur(4px);
+}
+
+.title-name-project
+{
+    color: #FEFEFE;
+    text-align: center;
+    font-family: Bruno Ace;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 20px;
+}
+
+.img-proj
+{
+    width: 160px;
+    height: 159px;
+    border-radius: 40px;
+    border: 1.5px solid #9958F5;
+    background: lightgray 50% / cover no-repeat;
+    box-shadow: 0px 0px 50px 4px rgba(153, 88, 245, 0.25);
+    margin-bottom: 15px;
+}
+
+.desc-proj
+{
+    color: #D2D2D2;
+    text-align: center;
+    font-family: Kodchasan;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.video-project
+{
+    border: 1.5px solid #368BE6;
+    background: lightgray 50% / cover no-repeat;
+    box-shadow: 0px 4px 50px 4px rgba(54, 139, 230, 0.30);
+   /* width: 100%;
+    height: 100%; */
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+}
+
+.team-tittle-proj
+{
+    color: #F8F8F8;
+    text-align: center;
+    font-family: Bruno Ace;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+.team-members-proj
+{
+    color: #D2D2D2;
+    text-align: center;
+    font-family: League Spartan;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.hr-gradient-proj
+{
+    width: 75%;
+    height: 4px;
+    height: 3px;
+    flex-shrink: 0;
+    border-radius: 63px;
+    border: 0px;
+    background: linear-gradient(90deg, #00ebd400 0%, #00EBD2 48.96%, #00ebd400 100%);
+    z-index: 7 !important;
+    margin-top: 10px;
+}
+
+/* Botones portafolio cambio de rama */
+.portfolio-btn{
+    background-color: #00000000;
+    font-size: 100%;
+    font-style: normal;
+    border: 0rem;
+    color: white;
+    font-family: Bruno Ace;
+    transition: all 200ms;
+    margin: 1.1rem;
+}
+
+.portfolio-btn:hover{
+    font-size: 2rem;
+}
+
+.portfolio-btn.active{
+    font-size: 2rem;
+    border-bottom: 0.2rem solid #00b0eb;
+}
+
+.portfolio-btn:disabled{
+    background-color: #00000000;
+    font-size: smaller;
+    color: rgb(160, 160, 160)
+}
