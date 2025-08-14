@@ -79,7 +79,7 @@
                         En LMAD nuestros estudiantes desarrollan las aptitudes necesarias para colaborar en equipo y desenvolverse como profesionales de la industria en la creación de videojuegos, te invitamos a descubrir los mundos extraordinarios que nuestros estudiantes han creado a lo largo de su estancia estudiantil.
                     </div>
                     <a class="card-videojuegos-link d-flex" style="margin-bottom: 20%;"
-                        href="{{route('Portfolio.subject', ['name' => 'videojuegos'])}}">Ver proyectos <i
+                        href="{{route('Portfolio.index')}}">Ver proyectos <i
                             class="gg-arrow-right d-flex" style="display: inline; 
                                     position: relative; left: 2%; top: 50%;  transform: translate(0%, -50%);"></i></a>
                 </div>
@@ -101,7 +101,7 @@
                         Los artistas digitales están divididos en tres: arte 2D, arte 3D y VFX. Todos comparten algo en común: el límite es la imaginación. Nuestros artistas digitales crean contenido que da vida a sus ideas más creativas, haciendo uso de sus habilidades y la pasión por el arte, manejando las herramientas estándares en la industria.
                     </div>
                     <a class="card-arte-link d-flex" style="margin-bottom: 20%;"
-                        href="{{route('Portfolio.subject', ['name' => 'arte'])}}">Ver
+                        href="{{route('Portfolio.index')}}">Ver
                         proyectos <i class="gg-arrow-right d-flex" style="display: inline; 
                                 position: relative; left: 2%; top: 50%;  transform: translate(0%, -50%);"></i></a>
                 </div>
@@ -115,7 +115,7 @@
                         En LMAD nos sumergimos en un mundo donde la creatividad y la lógica se fusionan para dar vida a soluciones innovadoras. La programación es el lenguaje del futuro, y nosotros somos sus maestros. Desde aplicaciones web y móviles hasta la creación de interfaces intuitivas y bases de datos eficientes. Imagina una idea y conviértela en realidad, en LMAD aprendes a dar forma a tus sueños a través del código.
                     </p>
                     <a class="card-progra-link d-flex" style="margin-bottom: 20%;"
-                        href="{{route('Portfolio.subject', ['name' => 'programacion'])}}">Ver proyectos <i
+                        href="{{route('Portfolio.index')}}">Ver proyectos <i
                             class="gg-arrow-right d-flex" style="display: inline; 
                                 position: relative; left: 2%; top: 50%;  transform: translate(0%, -50%);"></i></a>
                 </div>
