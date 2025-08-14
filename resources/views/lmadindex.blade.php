@@ -84,7 +84,7 @@
                                     position: relative; left: 2%; top: 50%;  transform: translate(0%, -50%);"></i></a>
                 </div>
                 <div class="row justify-content-center col-md-8 d-flex align-items-center" style="padding: 0px;">
-                    <img src="{{asset('images/ExpoLmadVid.jpg')}}" class="card-videojuegos-img-i">
+                    <img src="{{asset('images/EXPOLMAD-Vid.jpg')}}" class="card-videojuegos-img-i">
                 </div>
 
             </div>
@@ -92,7 +92,7 @@
 
             <div class="card-arte row justify-content-center mx-auto col-md-12" style="margin-top: 10%;">
                 <div class="row col-md-8 art-container-img" style="">
-                    <img src="{{asset('images/ExpoLmadArte.jpeg')}}" class="card-arte-img-i">
+                    <img src="{{asset('images/EXPOLMAD-ARTE.jpg')}}" class="card-arte-img-i">
                 </div>
                 <div class="card-arte-text row justify-content-center col-md-4 d-flex align-items-center">
                     <div class="mt-4"></div>
@@ -120,7 +120,7 @@
                                 position: relative; left: 2%; top: 50%;  transform: translate(0%, -50%);"></i></a>
                 </div>
                 <div class="row justify-content-center col-md-8 d-flex align-items-center" style="padding: 0px;">
-                    <img src="{{asset('images/ExpoLmadProgra.jpg')}}" class="card-progra-img-i">
+                    <img src="{{asset('images/EXPOLMAD-PROGRA.jpg')}}" class="card-progra-img-i">
                 </div>
             </div>
 
