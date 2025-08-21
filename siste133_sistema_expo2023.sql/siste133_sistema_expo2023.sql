@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 18-06-2025 a las 12:22:56
+-- Tiempo de generación: 21-08-2025 a las 11:50:54
 -- Versión del servidor: 5.7.23-23
--- Versión de PHP: 8.1.32
+-- Versión de PHP: 8.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -595,7 +595,9 @@ INSERT INTO `event_register_people` (`id`, `event`, `dependency`, `career`, `reg
 (440, 6, 'Facultad de Ciencias Físico Matemáticas', 'Licenciatura en Multimedia y Animación Digital', 'Ileana Paola Salas Meza', 1990033, 'ileana.salasez@uanl.edu.mx', 0, '2025-06-08 14:40:47', '2025-06-08 14:40:47', NULL),
 (441, 3, 'Facultad de Ciencias Físico Matemáticas', 'Licenciatura en Multimedia y Animación Digital', 'Diego Sebastián González Castillo', 1845018, 'diego.gonzalezco@uanl.edu.mx', 1, '2025-06-10 02:15:08', '2025-06-10 02:15:38', NULL),
 (442, 3, 'Facultad de Ciencias Físico Matemáticas', 'Licenciatura en Multimedia y Animación Digital', 'Aldo Segoviano', 2140780, 'aldo.segovianoh@uanl.edu.mx', 0, '2025-06-11 06:11:48', '2025-06-11 06:11:48', NULL),
-(443, 2, 'Facultad de Ciencias de la Comunicación', NULL, 'Itzel Damara Gil de León', 2002370, 'itzel.gildln@uanl.edu.mx', 0, '2025-06-14 01:23:51', '2025-06-14 01:23:51', NULL);
+(443, 2, 'Facultad de Ciencias de la Comunicación', NULL, 'Itzel Damara Gil de León', 2002370, 'itzel.gildln@uanl.edu.mx', 0, '2025-06-14 01:23:51', '2025-06-14 01:23:51', NULL),
+(444, 4, 'Facultad de Ciencias Físico Matemáticas', 'Licenciatura en Física', 'Carlos Daniel Pinkus Martinez', 2086095, 'carlos.pinkusm@uanl.edu.mx', 0, '2025-08-08 00:38:53', '2025-08-08 00:38:53', NULL),
+(445, 6, 'Facultad de Artes Visuales', 'Licenciatura en Actuaría', 'alexa cardenas', 1234567, 'alexandra.cardenast@uanl.edu.mx', 0, '2025-08-19 23:27:04', '2025-08-19 23:27:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -2287,7 +2289,9 @@ INSERT INTO `visitors` (`id`, `nombre_completo`, `matricula`, `genero`, `created
 (390, 'ROLANDO CERVABTRS', '2010234', NULL, '2025-06-08 05:59:04', '2025-06-08 05:59:04'),
 (391, 'BRISEIRI DE LA ROSA', '2007166', NULL, '2025-06-08 05:59:25', '2025-06-08 05:59:25'),
 (392, 'SOFIA ALVAREZ', NULL, 'Female', '2025-06-08 06:00:37', '2025-06-08 06:00:37'),
-(393, 'ROCIO ALVAREZ', NULL, 'Female', '2025-06-08 06:00:48', '2025-06-08 06:00:48');
+(393, 'ROCIO ALVAREZ', NULL, 'Female', '2025-06-08 06:00:48', '2025-06-08 06:00:48'),
+(394, 'PRUEBA POST EXPO', '8888888', NULL, '2025-08-11 23:57:42', '2025-08-11 23:57:42'),
+(395, 'PRUEBA POSTEXPO 2', NULL, 'They', '2025-08-11 23:57:56', '2025-08-11 23:57:56');
 
 --
 -- Índices para tablas volcadas
@@ -2475,7 +2479,7 @@ ALTER TABLE `event_guests`
 -- AUTO_INCREMENT de la tabla `event_register_people`
 --
 ALTER TABLE `event_register_people`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=446;
 
 --
 -- AUTO_INCREMENT de la tabla `event_students`
@@ -2559,7 +2563,7 @@ ALTER TABLE `validation_tokens`
 -- AUTO_INCREMENT de la tabla `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=394;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=396;
 
 --
 -- Restricciones para tablas volcadas
