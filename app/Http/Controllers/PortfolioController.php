@@ -117,7 +117,8 @@ class PortfolioController extends Controller
         //
     }
     
-    public function student($name)
+    //NO SE USA, SE BORRÓ LA VISTA
+    /*public function student($name)
     {
         $projectdata = array();
         
@@ -136,11 +137,11 @@ class PortfolioController extends Controller
         }
             
         return view('portfoliostudent', compact('projectdata'));
-    }
-
+    }*/
+    //NO SE USA, SE BORRÓ LA VISTA
+    /*
     public function base($name)
     {
-        /*PINKUS */
         $array_subjects = array();
         $title = "";
 
@@ -222,6 +223,7 @@ class PortfolioController extends Controller
         
          return view('porfolio_subject', compact('projectdataFinal', 'title'));
     }
+    */
 
  public function filtrar($categoria)
 {

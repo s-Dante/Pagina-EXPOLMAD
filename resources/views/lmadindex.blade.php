@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<link rel="stylesheet" href="{{ asset('css/public.css') }}">
 
 <header class="header-index row justify-content-center mx-auto h-100" id="header-index" style="">
     <div style="position: relative; width: 100%; height:80%;;padding-left: 0px;padding-right: 0px;">
@@ -16,46 +16,7 @@
         <img src="{{asset('images/LMAD_BLOOM.png')}}" class="header-logo-lmad img-fluid" height="270" width="522">
     </div>
 
-    <div class="panel-header-buttons notDisplay d-md-none" id="panelShow"> </div>
-
-    <div class="header-buttons-div">
-
-        <img src="{{asset('images/btn-burger-grad.png')}}" id="arrowShow" onclick="showButtons()"
-            class="arrow-header notDisplay" />
-
-        <div class="col-12 d-md-none"></div>
-
-        <button class="header-btn-eventMap notDisplay" id="mapButton"
-            onclick="window.location.href = '{{route('MapCI.index')}}'">Mapa del Evento</button>
-
-        <div class="col-12 d-md-none"></div>
-
-        <button class="header-btn-assistance notDisplay" id="assistanceButton"
-            onclick="window.location.href = '{{route('AfiRegister.index')}}'">Asistencia</button>
-
-        <div class="col-12 d-md-none"></div>
-
-        <button class="header-btn-portfolio d-md-none notDisplay" id="portfolioButton"
-            onclick="window.location.href = '{{route('Portfolio.index')}}'">Portafolio</button>
-
-        <div class="col-12 d-md-none"></div>
-
-        <button class="header-btn-Login d-md-none notDisplay" id="LoginButton"
-            onclick="window.location.href = '{{route('inicioSesion.index')}}'">Iniciar
-            Sesión</button>
-
-        <div class="col-12 d-md-none"></div>
-
-        <button class="header-btn-portfolio d-none d-md-block"
-            onclick="window.location.href = '{{route('Portfolio.index')}}'">Portafolio</button>
-
-        <div class="col-12 d-md-none"></div>
-
-        <button class="header-btn-Login d-none d-md-block"
-            onclick="window.location.href = '{{route('inicioSesion.index')}}'">Iniciar
-            Sesión</button>
-
-    </div>
+    @extends('Templates/navbarPublic')
 
 </header>
 

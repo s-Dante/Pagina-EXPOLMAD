@@ -1,0 +1,12 @@
+navbarPublic
+{
+    position: absolute;
+    margin: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}

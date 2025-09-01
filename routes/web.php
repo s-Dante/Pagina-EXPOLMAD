@@ -85,10 +85,11 @@ Route::resource('/MapCIcarrusel', MapCIcarruselController::class, [
 
 Route::get('/portfolio/filtrar/{categoria}', [PortfolioController::class, 'filtrar']);
 
-
+//NO SE USA, SE BORRÓ LA VISTA
+/*
 Route::get('/Portfolio/subject/{name}', [PortfolioController::class, 'base'])->name('Portfolio.subject');
 Route::get('/Portfolio/student/{name}', [PortfolioController::class, 'student'])->name('student');
-
+*/
 /*
 
 Route::get('/Portfolio/subject/{name}', [PortfolioController::class, 'base'])->name('Portfolio.subject');

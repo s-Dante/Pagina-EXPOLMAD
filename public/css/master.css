@@ -285,14 +285,6 @@ body {
     display: none;
 }
 
-/*header buttons div*/
-
-.header-buttons-div {
-    position: absolute;
-    width: 50%;
-    right: 5%;
-    top: 3%;
-}
 
 /*header images*/
 .header-logo-lmad {

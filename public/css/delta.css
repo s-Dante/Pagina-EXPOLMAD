@@ -224,15 +224,7 @@ body
     display: none;
 }
 
-/*header buttons div*/
 
-.header-buttons-div
-{
-    position: absolute;
-    width: 50%;
-    right: 5%;    
-    top: 3%;
-}
 
 /*header images*/
 .header-logo-lmad
@@ -4048,17 +4040,3 @@ h5 {
     display: none;
 }
 
-
-/*header buttons div*/
-
-.header-buttons-div
-{
-    position: absolute;
-    margin: 2rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-}
