@@ -101,7 +101,7 @@ body
     top: 0;
     background-attachment: fixed;
     z-index: 2 !important;
-    transform: skew(0, -3deg);
+    /*transform: skew(0, -3deg);*/
 }
 
 /*Configuración de los botones del header*/
