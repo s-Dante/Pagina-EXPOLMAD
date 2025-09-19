@@ -1,9 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
 
 .header-expo-3
 {
-    top:-20dvh;
     width: 100%;
     height: auto;
     flex-shrink: 0;
@@ -12,7 +10,6 @@
     z-index: 7 !important;
     object-fit: cover;
     display: inline;
-    position: absolute;
     background-attachment: fixed;
 }
 
@@ -24,6 +21,7 @@
     position: fixed;
     top: 0;
     background-attachment: fixed;
+    background: transparent;
     z-index: 2 !important;
     /* transform: skew(0, -3deg); */
 }
@@ -46,19 +44,119 @@ body
 h1 {
     font-family: "Anton SC";
     text-justify: auto;
-    font-size: 20rem;
+    font-size: 15rem;
+    color: C8D93D;
 }
 
 .body-container-expo-schedule {
     z-index: 8 !important;
     transition: height 0.3s;
-    background-color: linear-gradient(180deg, #0a1c33, #0b2927, #1c481a);
-    background: linear-gradient(180deg, #0a1c33, #0b2927, #1c481a);
-    width: 100%;
+    background: transparent;
+    width: auto;
     position: relative;
     top: 100%;
     /* height: 2550px; */
     height: fit-content;
     user-select: text;
     
+}
+
+.container-gradient{
+    top: 50%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    text-justify: center;
+    justify-items: center;
+    justify-content: center;
+    background:  -webkit-linear-gradient(270deg, #2f7321 0%, #2f7321 0.01%, #0b2927 100%, #0b2927 100%);
+}
+
+body{
+    background:  -webkit-linear-gradient(90deg, #1c481a 0%, #1c481a 0.01%, #0a1c33 100%, #0a1c33 100%);
+    height: 100%;
+    background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 5rem;
+        word-wrap: break-word;
+    }
+}
+
+.blum{
+    z-index: 10 !important;
+    justify-content: center;
+    justify-items: center;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    width: fit-content;
+    margin: auto;
+}
+
+.blum::before {
+    z-index: 10 !important;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(178, 178, 178, 0.1) 0%, rgba(255, 255, 220, 0) 70%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.blum:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.star{
+    z-index: 11 !important;
+    justify-content: center;
+    justify-items: center;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    width: fit-content;
+    margin: auto;
+}
+
+.star::before {
+    z-index: 11 !important;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background: radial-gradient(circle, rgba(209, 208, 208, 0.268) 0%, rgba(255, 255, 220, 0) 60%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    mix-blend-mode:lighten;
+    pointer-events: none;
+}
+
+.star:hover::before {
+    z-index: 11 !important;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.sponsor {
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+}
+
+.sponsor:hover {
+    transform: scale(1.1);
 }

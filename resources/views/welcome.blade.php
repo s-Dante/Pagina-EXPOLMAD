@@ -69,15 +69,72 @@
 
         </header>
 
-        <div class="header-expo-3">
-            <img src="{{asset('images/Cancha_v1.png')}}" class="header-expo-3">
-        </div>
-
         <div class="body-container-expo-schedule">
+            <img src="{{asset('images/Cancha_v1.png')}}" class="header-expo-3" style="padding: 0;">
 
-           <h1> NUESTRAS ESTRELLAS </h1>
-            
- 
+            <div class="container-gradient"> <!--Meter toda la info aquí-->
+
+                <h1> NUESTRAS ESTRELLAS </h1>
+
+                <div class="row px-20">
+
+                    <div class="blum col-12 col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-12 col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-12 col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(3).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-12 col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-12 col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(3).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+                    
+                    <div class="blum col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(3).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
