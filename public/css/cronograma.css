@@ -43,9 +43,9 @@ body
 
 h1 {
     font-family: "Anton SC";
-    text-justify: auto;
+    text-align: center;
     font-size: 15rem;
-    color: C8D93D;
+    color: #C8D93D;
 }
 
 .body-container-expo-schedule {
@@ -54,7 +54,7 @@ h1 {
     background: transparent;
     width: auto;
     position: relative;
-    top: 100%;
+    top: 40%;
     /* height: 2550px; */
     height: fit-content;
     user-select: text;
@@ -76,13 +76,6 @@ body{
     background:  -webkit-linear-gradient(90deg, #1c481a 0%, #1c481a 0.01%, #0a1c33 100%, #0a1c33 100%);
     height: 100%;
     background-attachment: fixed;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 5rem;
-        word-wrap: break-word;
-    }
 }
 
 .blum{
@@ -159,4 +152,46 @@ body{
 
 .sponsor:hover {
     transform: scale(1.1);
+}
+
+.title{
+    font-size: 18rem;
+    position: absolute;
+    top: -30rem;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-family: "Anton SC";
+        text-align: center;
+        font-size: 5rem;
+        word-wrap: break-word;
+    }
+
+    .body-container-expo-schedule {
+        z-index: 8 !important;
+        transition: height 0.3s;
+        background: transparent;
+        width: auto;
+        position: relative;
+        top: 50dvh ;
+        /* height: 2550px; */
+        height: fit-content;
+        user-select: text;
+    }
+
+    .title{
+        font-size: 7rem;
+        position: absolute;
+        top: -17rem;
+    }
+
+    .container-gradient{
+        top:18rem;
+        position: absolute;
+    }
+}
+
+@media (max-width: 364px) {
+    
 }

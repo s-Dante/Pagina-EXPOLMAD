@@ -72,11 +72,11 @@
         <div class="body-container-expo-schedule">
             <img src="{{asset('images/Cancha_v1.png')}}" class="header-expo-3" style="padding: 0;">
 
-            <div class="container-gradient"> <!--Meter toda la info aquí-->
+            <div class="container-gradient">
 
-                <h1> NUESTRAS ESTRELLAS </h1>
+                <h1 class="title"> NUESTRAS ESTRELLAS </h1>
 
-                <div class="row px-20">
+                <div class="row px-20 mx-auto">
 
                     <div class="blum col-12 col-lg-4">
                         <div class="star">
@@ -108,27 +108,33 @@
                         </div>
                     </div>
 
-                    <div class="blum col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(3).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-                    
-                    <div class="blum col-lg-4">
+                    <div class="blum col-12 col-lg-4">
                         <div class="star">
                             <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
                         </div>
                     </div>
 
-                    <div class="blum col-lg-4">
+                    <div class="blum col-12 col-lg-4">
                         <div class="star">
                             <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
                         </div>
                     </div>
 
-                    <div class="blum col-lg-4">
+                    <div class="blum col-12 col-lg-4">
                         <div class="star">
                             <img src="{{asset('images/sponsor(3).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-12 col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
+                        </div>
+                    </div>
+
+                    <div class="blum col-12 col-lg-4">
+                        <div class="star">
+                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
                         </div>
                     </div>
 
