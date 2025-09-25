@@ -24,6 +24,7 @@ use App\Http\Controllers\AfiAssistantsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminPersonCompany;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\EstrellasController;
 use App\Http\Controllers\MapCIController;
 use App\Http\Controllers\MapCIcarruselController;
 use App\Http\Controllers\EmailController;
@@ -47,6 +48,9 @@ use Illuminate\Support\Facades\Mail;
 */
 
 Route::get('/expo', [WelcomeController::class, 'index'])->name('expo.index');
+
+Route::get('/NuestrasEstrellas', [EstrellasController::class, 'index']);
+
 Route::get('/MapCI',[MapCIController::class,'index']);
 Route::resource('/MapCI', MapCIController::class, [
     'index' =>  '/MapCI.index',

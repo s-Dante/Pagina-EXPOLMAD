@@ -74,7 +74,7 @@
 
             <div class="container-gradient">
 
-                <h1 class="title"> HORARIO </h1>
+                <h1 class="title"> NUESTRAS ESTRELLAS </h1>
 
                 <div class="row px-20 mx-auto">
 
