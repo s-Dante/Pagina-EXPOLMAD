@@ -3,6 +3,7 @@
 @section('content')
 
     <link rel="stylesheet" href="{{ asset('css/cronograma.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/glassimorfismo.css') }}">
 
     <body>
 
@@ -78,65 +79,28 @@
 
                 <div class="row px-20 mx-auto">
 
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
+                    <div style="margin: 10rem;">
+                        <div class="glassContainer" style="">
+                            <img src="{{asset('images/Cancha_v1.png')}}">
                         </div>
                     </div>
 
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
 
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(3).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(3).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(1).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
-
-                    <div class="blum col-12 col-lg-4">
-                        <div class="star">
-                            <img src="{{asset('images/sponsor(2).svg')}}" class="img-fluid sponsor">
-                        </div>
-                    </div>
+                    <svg style="display: none">
+                        <filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92"
+                                result="noise" />
+                            <feGaussianBlur in="noise" stdDeviation="0.02" result="blur" />
+                            <feDisplacementMap in="SourceGraphic" in2="blur" scale="77" xChannelSelector="R"
+                                yChannelSelector="G" />
+                        </filter>
+                        <filter id="btn-glass" primitiveUnits="objectBoundingBox">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blur"></feGaussianBlur>
+                            <feDisplacementMap id="disp" in="blur" in2="map" scale="1" xChannelSelector="R"
+                                yChannelSelector="G" />
+                            </feDisplacementMap>
+                        </filter>
+                    </svg>
 
                 </div>
 
