@@ -79,10 +79,26 @@
 
                 <div class="row px-20 mx-auto">
 
-                    <div style="margin: 10rem;">
-                        <div class="glassContainer" style="">
-                            <img src="{{asset('images/Cancha_v1.png')}}">
+                    <div class="row" style="margin: 0rem;">
+
+                        <div style="width: auto; height: auto;">
+                            <div class="glassContainer" style="width: auto; height: auto;">
+                                <div style="z-index: 0; padding: 3rem;">
+                                    <img src="{{asset('images/MapaInteractivo.svg')}}">
+                                </div>
+                            </div>
+
+                            <div class="d-flex row">
+                                <button style="width: 1rem; height: 1rem;"></button>
+                                <button style="width: 1rem; height: 1rem;"></button>
+                            </div>
                         </div>
+
+                        <div style="width: auto;">
+                            <img src="{{asset('images/AmbassadorSchedules.jpg')}}" style="width: 60rem; border-radius: 30px;" class="img-fluid">
+                        </div>
+
+
                     </div>
 
 
@@ -103,6 +119,8 @@
                     </svg>
 
                 </div>
+
+                <h1> CONFERENCIAS </h1>
 
             </div>
 
