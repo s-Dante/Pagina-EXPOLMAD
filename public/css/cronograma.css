@@ -62,7 +62,7 @@ h1 {
 }
 
 .container-gradient{
-    top: 50%;
+    top: 40%;
     width: 100%;
     left: 0;
     position: absolute;
@@ -157,7 +157,7 @@ body{
 .title{
     font-size: 18rem;
     position: absolute;
-    top: -30rem;
+    top: -20rem;
 }
 
 @media (max-width: 768px) {
@@ -194,4 +194,20 @@ body{
 
 @media (max-width: 364px) {
     
+}
+
+.confe-backimage{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120vw;
+    height: 80rem;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px);
+    opacity: 0.4;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    z-index: 0;
 }

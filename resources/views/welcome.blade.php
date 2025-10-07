@@ -77,54 +77,99 @@
 
                 <h1 class="title"> HORARIO </h1>
 
-                <div class="row px-20 mx-auto">
+                <div class="row px-20 mx-auto py-5">
 
-                    <div class="row" style="margin: 0rem;">
+                    <div class="row align-items-center" style="margin: 0rem;">
 
-                        <div style="width: auto; height: auto;">
+                        <div class="px-5" style="width: auto; height: auto;">
                             <div class="glassContainer" style="width: auto; height: auto;">
                                 <div style="z-index: 0; padding: 3rem;">
                                     <img src="{{asset('images/MapaInteractivo.svg')}}">
                                 </div>
                             </div>
 
-                            <div class="d-flex row">
+                            <div class="d-flex row justify-content-center align-items-center">
                                 <button style="width: 1rem; height: 1rem;"></button>
                                 <button style="width: 1rem; height: 1rem;"></button>
                             </div>
                         </div>
 
-                        <div style="width: auto;">
-                            <img src="{{asset('images/AmbassadorSchedules.jpg')}}" style="width: 60rem; border-radius: 30px;" class="img-fluid">
+                        <div class="px-5" style="width: auto;">
+                            <img src="{{asset('images/AmbassadorSchedules.jpg')}}"
+                                style="width: 60rem; border-radius: 30px;" class="img-fluid">
                         </div>
 
 
                     </div>
 
 
-                    <svg style="display: none">
-                        <filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92"
-                                result="noise" />
-                            <feGaussianBlur in="noise" stdDeviation="0.02" result="blur" />
-                            <feDisplacementMap in="SourceGraphic" in2="blur" scale="77" xChannelSelector="R"
-                                yChannelSelector="G" />
-                        </filter>
-                        <filter id="btn-glass" primitiveUnits="objectBoundingBox">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blur"></feGaussianBlur>
-                            <feDisplacementMap id="disp" in="blur" in2="map" scale="1" xChannelSelector="R"
-                                yChannelSelector="G" />
-                            </feDisplacementMap>
-                        </filter>
-                    </svg>
+                </div>
+
+                <!--zenmode ctrl+k z-->
+                <div class="row mx-auto py-5" style="margin-top: 10rem;">
+                    <h1 style="z-index: 1!important;"> CONFERENCIAS </h1>
+
+                    <div class="row align-items-center justify-content-center" style="margin: 0rem;">
+
+                        <div class="px-5" style="z-index: 1!important; width: auto;">
+                            <img src="{{asset('images/CRONOGRAMA1.png')}}"
+                                style="width: 48rem; border-radius: 30px;" class="img-fluid">
+                        </div>
+
+                        <div class="glassContainer"
+                            style="z-index: 1!important; width: auto; height: auto; padding: 4rem; display: flex; flex-direction: column; align-items: center;">
+
+                            <!-- Foreach de conferencias(titulo) - conferencista -->
+                            <div class="glassContainer"
+                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
+                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
+                            </div>
+                            <div class="glassContainer"
+                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
+                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
+                            </div>
+                            <div class="glassContainer"
+                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
+                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
+                            </div>
+                            <div class="glassContainer"
+                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
+                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
+                            </div>
+
+                        </div>
+
+                        <img class="confe-backimage" src="{{asset('images/CRONOGRAMA1.png')}}">
+
+                    </div>
 
                 </div>
 
-                <h1> CONFERENCIAS </h1>
+
+                <div class="row mx-auto py-5" style="margin-top: 20rem;">
+                    <h1 style="z-index: 1!important;"> TALLERES </h1>
+
+                    <div class="row align-items-center" style="margin: 0rem;">
+
+                    </div>
+                </div>
 
             </div>
 
         </div>
+
+        <svg style="display: none">
+            <filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92" result="noise" />
+                <feGaussianBlur in="noise" stdDeviation="0.02" result="blur" />
+                <feDisplacementMap in="SourceGraphic" in2="blur" scale="77" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="btn-glass" primitiveUnits="objectBoundingBox">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blur"></feGaussianBlur>
+                <feDisplacementMap id="disp" in="blur" in2="map" scale="1" xChannelSelector="R" yChannelSelector="G" />
+                </feDisplacementMap>
+            </filter>
+        </svg>
 
         <script>
             $(document).ready(function () {
