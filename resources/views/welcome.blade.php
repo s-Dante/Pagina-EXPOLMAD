@@ -153,17 +153,19 @@
                         <button id="prevBtn" class="button-arrow left"><img src="{{asset('images/g-arrow-purple.svg')}}"></button>
                         <button id="nextBtn" class="button-arrow right"><img src="{{asset('images/g-arrow-blue.svg')}}"></button>
                         
-                        <div id="imageCarousel" class="row align-items-center justify-content-center flex-nowrap" style="overflow-x: auto;">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
-                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                        <div style="width: 100%; overflow-x: hidden;">
+                            <div id="imageCarousel" class="row align-items-center justify-content-center flex-nowrap" style="overflow-x: auto;">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                                <img src="{{asset('images/TARDECINE.jpg')}}">
+                            </div>
                         </div>
                     </div>
 
@@ -179,6 +181,16 @@
                             const visibleImages = 3;
 
                             function updateCarousel() {
+                                const imageWidth = images[0].clientWidth;
+                                const containerWidth = carousel.clientWidth;
+                                const scrollAmount = (currentIndex * imageWidth) - (containerWidth / 2) + (imageWidth * visibleImages / 2) - (imageWidth/2) ;
+
+
+                                carousel.scrollTo({
+                                    left: scrollAmount,
+                                    behavior: 'smooth'
+                                });
+
                                 for (let i = 0; i < totalImages; i++) {
                                     const img = images[i];
                                     img.classList.remove('tallercard-image', 'tallercard-image-blurr');
@@ -206,6 +218,9 @@
                                     updateCarousel();
                                 }
                             });
+
+                            // Recalculate on resize
+                            window.addEventListener('resize', updateCarousel);
 
                             updateCarousel();
                         });

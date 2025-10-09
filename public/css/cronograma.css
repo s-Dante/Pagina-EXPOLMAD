@@ -258,3 +258,9 @@ body{
 .right{
     right: 0;
 }
+
+.carousel-container {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
