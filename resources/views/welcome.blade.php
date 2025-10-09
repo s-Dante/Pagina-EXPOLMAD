@@ -79,7 +79,7 @@
 
                 <div class="row px-20 mx-auto py-5">
 
-                    <div class="row align-items-center" style="margin: 0rem;">
+                    <div class="row align-items-center" style="z-index: 1!important; margin: 0rem;">
 
                         <div class="px-5" style="width: auto; height: auto;">
                             <div class="glassContainer" style="width: auto; height: auto;">
@@ -102,6 +102,7 @@
 
                     </div>
 
+                    <div class="container-gradient-segment"></div>
 
                 </div>
 
@@ -112,14 +113,13 @@
                     <div class="row align-items-center justify-content-center" style="margin: 0rem;">
 
                         <div class="px-5" style="z-index: 1!important; width: auto;">
-                            <img src="{{asset('images/CRONOGRAMA1.png')}}"
-                                style="width: 48rem; border-radius: 30px;" class="img-fluid">
+                            <img src="{{asset('images/CRONOGRAMA1.png')}}" style="width: 48rem; border-radius: 30px;"
+                                class="img-fluid">
                         </div>
 
                         <div class="glassContainer"
                             style="z-index: 1!important; width: auto; height: auto; padding: 4rem; display: flex; flex-direction: column; align-items: center;">
 
-                            <!-- Foreach de conferencias(titulo) - conferencista -->
                             <div class="glassContainer"
                                 style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
                                 <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
@@ -146,12 +146,72 @@
                 </div>
 
 
-                <div class="row mx-auto py-5" style="margin-top: 20rem;">
+                <div class="row mx-auto py-5" style="margin-top: 10rem;">
                     <h1 style="z-index: 1!important;"> TALLERES </h1>
 
                     <div class="row align-items-center" style="margin: 0rem;">
-
+                        <button id="prevBtn" class="button-arrow left"><img src="{{asset('images/g-arrow-purple.svg')}}"></button>
+                        <button id="nextBtn" class="button-arrow right"><img src="{{asset('images/g-arrow-blue.svg')}}"></button>
+                        
+                        <div id="imageCarousel" class="row align-items-center justify-content-center flex-nowrap" style="overflow-x: auto;">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                            <img src="{{asset('images/TARDECINE.jpg')}}">
+                        </div>
                     </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const carousel = document.getElementById('imageCarousel');
+                            const images = carousel.getElementsByTagName('img');
+                            const prevBtn = document.getElementById('prevBtn');
+                            const nextBtn = document.getElementById('nextBtn');
+
+                            let currentIndex = 0;
+                            const totalImages = images.length;
+                            const visibleImages = 3;
+
+                            function updateCarousel() {
+                                for (let i = 0; i < totalImages; i++) {
+                                    const img = images[i];
+                                    img.classList.remove('tallercard-image', 'tallercard-image-blurr');
+
+                                    const isVisible = i >= currentIndex && i < currentIndex + visibleImages;
+                                    
+                                    if (isVisible) {
+                                        img.classList.add('tallercard-image');
+                                    } else {
+                                        img.classList.add('tallercard-image-blurr');
+                                    }
+                                }
+                            }
+
+                            prevBtn.addEventListener('click', function() { //meter animacines de transición
+                                if (currentIndex > 0) {
+                                    currentIndex--;
+                                    updateCarousel();
+                                }
+                            });
+
+                            nextBtn.addEventListener('click', function() { //meter animacines de transición
+                                if (currentIndex < totalImages - visibleImages) {
+                                    currentIndex++;
+                                    updateCarousel();
+                                }
+                            });
+
+                            updateCarousel();
+                        });
+                    </script>
+
+
                 </div>
 
             </div>
