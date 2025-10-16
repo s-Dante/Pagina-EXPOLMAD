@@ -2,8 +2,9 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/cronograma.css') }}">
     <link rel="stylesheet" href="{{ asset('css/glassimorfismo.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cronograma.css') }}">
+
 
     <body>
 
@@ -120,21 +121,16 @@
                         <div class="glassContainer"
                             style="z-index: 1!important; width: auto; height: auto; padding: 4rem; display: flex; flex-direction: column; align-items: center;">
 
-                            <div class="glassContainer"
-                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
-                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
+                            <div class="glassContainer button-large glss-btn-large" style="z-index: 1!important;">
+                                <h4>CONFERENCIA - CONFERENCISTA</h4>
                             </div>
-                            <div class="glassContainer"
-                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
-                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
+                            
+                            <div class="glassContainer button-large glss-btn-large" style="z-index: 1!important;">
+                                <h4>CONFERENCIA - CONFERENCISTA</h4>
                             </div>
-                            <div class="glassContainer"
-                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
-                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
-                            </div>
-                            <div class="glassContainer"
-                                style="z-index: 1!important; width: 40rem; height: auto; padding: 1rem; margin-bottom: 1rem;">
-                                <h4 style="color: white;">CONFERENCIA - CONFERENCISTA</h4>
+                            
+                            <div class="glassContainer button-large glss-btn-large" style="z-index: 1!important;">
+                                <h4>CONFERENCIA - CONFERENCISTA</h4>
                             </div>
 
                         </div>
@@ -149,12 +145,28 @@
                 <div class="row mx-auto py-5" style="margin-top: 10rem;">
                     <h1 style="z-index: 1!important;"> TALLERES </h1>
 
-                    <div class="row align-items-center" style="margin: 0rem;">
-                        <button id="prevBtn" class="button-arrow left"><img src="{{asset('images/g-arrow-purple.svg')}}"></button>
-                        <button id="nextBtn" class="button-arrow right"><img src="{{asset('images/g-arrow-blue.svg')}}"></button>
-                        
-                        <div style="width: 100%; overflow-x: hidden;">
-                            <div id="imageCarousel" class="row align-items-center justify-content-center flex-nowrap" style="overflow-x: auto;">
+                    <div class="row align-items-center justify-content-center" style="margin: 0rem;">
+                        <button id="prevBtn" class="button-arrow left"><img
+                                src="{{asset('images/g-arrow-purple.svg')}}"></button>
+                        <button id="nextBtn" class="button-arrow right"><img
+                                src="{{asset('images/g-arrow-blue.svg')}}"></button>
+
+                        <style>
+                            #imageCarousel {
+                                scrollbar-width: none;
+                                /* Firefox */
+                                -ms-overflow-style: none;
+                                /* IE and Edge */
+                            }
+
+                            #imageCarousel::-webkit-scrollbar {
+                                display: none;
+                                /* Chrome, Safari, Opera */
+                            }
+                        </style>
+                        <div style="max-width: 98dvw; overflow-x: hidden; margin: 0rem;">
+                            <div id="imageCarousel" class="row align-items-center justify-content-center flex-nowrap"
+                                style="margin: 0rem; overflow-x: auto;">
                                 <img src="{{asset('images/TARDECINE.jpg')}}">
                                 <img src="{{asset('images/TARDECINE.jpg')}}">
                                 <img src="{{asset('images/TARDECINE.jpg')}}">
@@ -170,7 +182,7 @@
                     </div>
 
                     <script>
-                        document.addEventListener('DOMContentLoaded', function () {
+                        window.addEventListener('load', function () {
                             const carousel = document.getElementById('imageCarousel');
                             const images = carousel.getElementsByTagName('img');
                             const prevBtn = document.getElementById('prevBtn');
@@ -178,13 +190,14 @@
 
                             let currentIndex = 0;
                             const totalImages = images.length;
-                            const visibleImages = 3;
 
                             function updateCarousel() {
-                                const imageWidth = images[0].clientWidth;
-                                const containerWidth = carousel.clientWidth;
-                                const scrollAmount = (currentIndex * imageWidth) - (containerWidth / 2) + (imageWidth * visibleImages / 2) - (imageWidth/2) ;
+                                if (images.length === 0) return;
 
+                                const targetImage = images[currentIndex];
+                                const containerWidth = carousel.offsetWidth;
+
+                                const scrollAmount = targetImage.offsetLeft + (targetImage.offsetWidth / 2) - (containerWidth / 2);
 
                                 carousel.scrollTo({
                                     left: scrollAmount,
@@ -195,8 +208,12 @@
                                     const img = images[i];
                                     img.classList.remove('tallercard-image', 'tallercard-image-blurr');
 
-                                    const isVisible = i >= currentIndex && i < currentIndex + visibleImages;
-                                    
+                                    const dist = Math.abs(i - currentIndex);
+                                    // Check for distance, and also wrap-around cases for visibility
+                                    const isVisible = dist <= 1
+                                        || (currentIndex === 0 && i === totalImages - 1)
+                                        || (currentIndex === totalImages - 1 && i === 0);
+
                                     if (isVisible) {
                                         img.classList.add('tallercard-image');
                                     } else {
@@ -205,23 +222,17 @@
                                 }
                             }
 
-                            prevBtn.addEventListener('click', function() { //meter animacines de transición
-                                if (currentIndex > 0) {
-                                    currentIndex--;
-                                    updateCarousel();
-                                }
+                            prevBtn.addEventListener('click', function () { //meter animacines de transición
+                                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                                updateCarousel();
                             });
 
-                            nextBtn.addEventListener('click', function() { //meter animacines de transición
-                                if (currentIndex < totalImages - visibleImages) {
-                                    currentIndex++;
-                                    updateCarousel();
-                                }
+                            nextBtn.addEventListener('click', function () { //meter animacines de transición
+                                currentIndex = (currentIndex + 1) % totalImages;
+                                updateCarousel();
                             });
 
-                            // Recalculate on resize
                             window.addEventListener('resize', updateCarousel);
-
                             updateCarousel();
                         });
                     </script>

@@ -244,6 +244,8 @@ body{
 }
 
 .button-arrow{
+    background: none;
+    border: none;
     position: absolute;
     margin: 2rem;
     width: 4rem;
@@ -263,4 +265,36 @@ body{
     width: 100%;
     overflow-x: hidden;
     position: relative;
+}
+
+.button-large{
+    color:#ced1d585;
+}
+
+.button-large:hover{
+    -webkit-box-shadow: inset 2px 2px 0px -2px rgba(167, 255, 233, 0.785), inset 0 0 3px 1px rgba(167, 230, 255, 0.642);
+            box-shadow: inset 2px 2px 0px -2px rgb(255, 255, 255), inset 0 0 3px 1px rgba(167, 230, 255, 0.456);
+    background-color: rgba(63, 102, 95, 0.262);
+    color:white;
+}
+
+.button-large:active{
+    color:rgb(255, 255, 255);
+    background-color: rgba(63, 102, 95, 0.418);
+}
+
+.glss-btn-large{
+    width: 40rem; 
+    height: auto;
+    padding: 1rem; 
+    margin-bottom: 1rem;
+    user-select: none;
+}
+
+.glss-btn-large::before{
+    border-radius: 2rem;
+}
+
+.glss-btn-large::after{
+    border-radius: 2rem;
 }
