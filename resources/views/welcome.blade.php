@@ -90,8 +90,8 @@
                             </div>
 
                             <div class="d-flex row justify-content-center align-items-center">
-                                <button style="width: 1rem; height: 1rem;"></button>
-                                <button style="width: 1rem; height: 1rem;"></button>
+                                <div style="width: 1rem; height: 1rem;"></div>
+                                <div style="width: 1rem; height: 1rem;"></div>
                             </div>
                         </div>
 
@@ -100,10 +100,9 @@
                                 style="width: 60rem; border-radius: 30px;" class="img-fluid">
                         </div>
 
-
                     </div>
 
-                    <div class="container-gradient-segment"></div>
+                    <div class="container-gradient-segment-horario"></div>
 
                 </div>
 
