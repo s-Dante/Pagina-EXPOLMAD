@@ -110,31 +110,34 @@
                 <div class="row mx-auto py-5" style="margin-top: 10rem;">
                     <h1 style="z-index: 1!important;"> CONFERENCIAS </h1>
 
+                    <style>
+                        #conference-image, #conference-background-image {
+                            transition: opacity 0.4s ease-in-out;
+                        }
+                        .image-fade-out {
+                            opacity: 0;
+                        }
+                    </style>
+
                     <div class="row align-items-center justify-content-center" style="margin: 0rem;">
 
                         <div class="px-5" style="z-index: 1!important; width: auto;">
-                            <img src="{{asset('images/CRONOGRAMA1.png')}}" style="width: 48rem; border-radius: 30px;"
+                            <img id="conference-image" src="{{asset('images/CRONOGRAMA1.png')}}" style="width: 45rem; border-radius: 30px;"
                                 class="img-fluid">
                         </div>
 
                         <div class="glassContainer"
                             style="z-index: 1!important; width: auto; height: auto; padding: 4rem; display: flex; flex-direction: column; align-items: center;">
 
-                            <div class="glassContainer button-large glss-btn-large" style="z-index: 1!important;">
-                                <h4>CONFERENCIA - CONFERENCISTA</h4>
-                            </div>
-                            
-                            <div class="glassContainer button-large glss-btn-large" style="z-index: 1!important;">
-                                <h4>CONFERENCIA - CONFERENCISTA</h4>
-                            </div>
-                            
-                            <div class="glassContainer button-large glss-btn-large" style="z-index: 1!important;">
-                                <h4>CONFERENCIA - CONFERENCISTA</h4>
-                            </div>
+                            @foreach ($conferences as $conference)
+                                <div class="glassContainer button-large glss-btn-large conference-button" data-image="{{ asset($conference['image']) }}" style="z-index: 1!important; cursor: pointer;">
+                                    <span>{{ $conference['conference'] }} - {{ $conference['speaker'] }}</span>
+                                </div>
+                            @endforeach
 
                         </div>
 
-                        <img class="confe-backimage" src="{{asset('images/CRONOGRAMA1.png')}}">
+                        <img id="conference-background-image" class="confe-backimage" src="{{asset('images/CRONOGRAMA1.png')}}">
 
                     </div>
 
@@ -349,5 +352,45 @@
             // Llama a la función inicialmente para mostrar el tiempo restante
             calcularTiempoRestante();
 
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const conferenceButtons = document.querySelectorAll('.conference-button');
+                const conferenceImage = document.getElementById('conference-image');
+                const conferenceBackgroundImage = document.getElementById('conference-background-image');
+
+                conferenceButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Handle selection state
+                        conferenceButtons.forEach(btn => {
+                            btn.classList.remove('button-large-selected');
+                            btn.classList.add('button-large');
+                        });
+                        this.classList.remove('button-large');
+                        this.classList.add('button-large-selected');
+
+                        const newImage = this.dataset.image;
+
+                        // Add fade-out class
+                        conferenceImage.classList.add('image-fade-out');
+                        conferenceBackgroundImage.classList.add('image-fade-out');
+
+                        // Wait for the transition to end before changing the source
+                        conferenceImage.addEventListener('transitionend', function handler() {
+                            // Change the image source
+                            conferenceImage.src = newImage;
+                            conferenceBackgroundImage.src = newImage;
+
+                            // Remove the fade-out class to fade in
+                            conferenceImage.classList.remove('image-fade-out');
+                            conferenceBackgroundImage.classList.remove('image-fade-out');
+
+                            // Remove the event listener to avoid it firing multiple times
+                            conferenceImage.removeEventListener('transitionend', handler);
+                        });
+                    });
+                });
+            });
         </script>
 @endsection
