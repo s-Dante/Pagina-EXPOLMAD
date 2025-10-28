@@ -251,14 +251,16 @@ body{
     width: 30rem;
     height: auto;
     border-radius: 4rem;
+    transition: opacity .3s ease, width .3s ease;
 }
 
 .tallercard-image-blurr{
-    width: 30rem;
+    width: 20rem;
     height: auto;
     border-radius: 4rem;
     opacity: 0.3;
     filter: blur(2px);
+    transition: opacity .3s ease, width .3s ease;
 }
 
 .button-arrow{
@@ -292,6 +294,7 @@ body{
     opacity: 50%;
     color:#ced1d585;
     background-color: rgba(63, 102, 95, 0.042);
+    transition: background-color .3s ease, color .3s ease, opacity .3s ease;
 }
 
 .button-large:hover{
@@ -325,6 +328,7 @@ body{
     0 0 92px rgba(0, 255, 170, 0.321),
     0 0 102px rgba(0, 255, 170, 0.321),
     0 0 151px rgba(0, 255, 170, 0.321);
+    transition: background-color .3s ease, color .3s ease, opacity .3s ease;
 }
 
 .glss-btn-large{
