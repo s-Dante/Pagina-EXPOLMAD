@@ -85,8 +85,9 @@
                         <div class="px-5" style="width: auto; height: auto;">
                             <div class="glassContainer" style="width: auto; height: auto;">
                                 <div style="z-index: 0; padding: 3rem;">
-                                    <img src="{{asset('images/MapaInteractivo.svg')}}">
+                                    <img src="{{asset('images/MapaInteractivo.svg')}}" style="width: 30rem;">
                                 </div>
+                                <canvas id="MapaInteractivo"></canvas>
                             </div>
 
                             <div class="d-flex row justify-content-center align-items-center">
@@ -97,7 +98,7 @@
 
                         <div class="px-5" style="width: auto;">
                             <img src="{{asset('images/AmbassadorSchedules.jpg')}}"
-                                style="width: 60rem; border-radius: 30px;" class="img-fluid">
+                                style="width: 45rem; border-radius: 30px;" class="img-fluid">
                         </div>
 
                     </div>
@@ -110,14 +111,6 @@
                 <div class="row mx-auto py-5" style="margin-top: 10rem;">
                     <h1 style="z-index: 1!important;"> CONFERENCIAS </h1>
 
-                    <style>
-                        #conference-image, #conference-background-image {
-                            transition: opacity 0.4s ease-in-out;
-                        }
-                        .image-fade-out {
-                            opacity: 0;
-                        }
-                    </style>
 
                     <div class="row align-items-center justify-content-center" style="margin: 0rem;">
 
@@ -153,66 +146,16 @@
                         <button id="nextBtn" class="button-arrow right"><img
                                 src="{{asset('images/g-arrow-blue.svg')}}"></button>
 
-                        <style>
-                            #imageCarousel {
-                                scrollbar-width: none;
-                                /* Firefox */
-                                -ms-overflow-style: none;
-                                /* IE and Edge */
-                            }
-
-                            #imageCarousel::-webkit-scrollbar {
-                                display: none;
-                                /* Chrome, Safari, Opera */
-                            }
-                        </style>
                         <div style="max-width: 98dvw; overflow-x: hidden; margin: 0rem;">
                             <div id="imageCarousel" class="row align-items-center justify-content-center flex-nowrap"
                                 style="margin: 0rem; overflow-x: auto;">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
-                                <img class="tallercard-image" src="{{asset('images/TARDECINE.jpg')}}">
+                                @foreach ($talleres as $taller)
+                                    <img class="tallercard-image" src="{{ asset($taller['image']) }}">
+                                @endforeach
                             </div>
                         </div>
                     </div>
 
-                    <style>
-                        .workshop-card-shrinking {
-                            animation: shrink 0.3s ease-in-out forwards;
-                        }
-
-                        .workshop-card-growing {
-                            animation: grow 0.3s ease-in-out forwards;
-                        }
-
-                        @keyframes shrink {
-                            from {
-                                transform: scale(1);
-                                opacity: 1;
-                            }
-                            to {
-                                transform: scale(0.1);
-                                opacity: 0;
-                            }
-                        }
-
-                        @keyframes grow {
-                            from {
-                                transform: scale(0.1);
-                                opacity: 0;
-                            }
-                            to {
-                                transform: scale(1);
-                                opacity: 1;
-                            }
-                        }
-                    </style>
                     <script>
                         window.addEventListener('load', function () {
                             const carousel = document.getElementById('imageCarousel');
@@ -229,7 +172,7 @@
 
                                 const targetImage = images[currentIndex];
                                 const containerWidth = carousel.offsetWidth;
-                                const scrollAmount = targetImage.offsetLeft + (targetImage.offsetWidth / 2) - (containerWidth / 2);
+                                const scrollAmount = targetImage.offsetLeft + (targetImage.offsetWidth / 2) - (containerWidth / 2) + 100;
 
                                 images.forEach((img, i) => {
                                     img.classList.remove('tallercard-image', 'tallercard-image-blurr');
@@ -242,7 +185,7 @@
                                 });
 
                                 carousel.scrollTo({
-                                    left: scrollAmount,
+                                    left: scrollAmount, 
                                     behavior: instant ? 'instant' : 'smooth'
                                 });
                             }
