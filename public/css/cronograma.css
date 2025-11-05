@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan&display=swap');
 
 .header-expo-3
 {
@@ -248,14 +249,14 @@ body{
 }
 
 .tallercard-image{
-    width: 43rem;
+    width: 30rem;
     height: auto;
     border-radius: 4rem;
     transition: opacity .3s ease, width .3s ease;
 }
 
 .tallercard-image-blurr{
-    width: 30rem;
+    width: 22rem;
     height: auto;
     border-radius: 4rem;
     opacity: 0.3;
@@ -411,4 +412,8 @@ body{
 }
 .image-fade-out {
     opacity: 0;
+}
+
+canvas{
+ z-index: 1 !important;
 }
