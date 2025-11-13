@@ -85,10 +85,10 @@
                         <div class="px-5" style="width: auto; height: auto;">
                             <div class="glassContainer" style="padding: 2rem; width: auto; height: auto;">
                                 <!--     
-                                            <div style="z-index: 0; padding: 3rem;">
-                                                <img src="{{asset('images/MapaInteractivo.svg')}}" style="width: 30rem;">
-                                            </div>
-                                        -->
+                                                <div style="z-index: 0; padding: 3rem;">
+                                                    <img src="{{asset('images/MapaInteractivo.svg')}}" style="width: 30rem;">
+                                                </div>
+                                            -->
                                 <canvas id="MapaInteractivo"></canvas>
                             </div>
 
@@ -329,14 +329,15 @@
                             }
                         }
 
-                        function clearCanvas(canvas) {
-                            ctx = canvas.getContext("2d");
-                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        function clearCanvas() {
+                            //var ctx = canvas.getContext("2d");
+                            ctx.clearRect(0, 0, map.width, map.height);
 
                             console.log("dibujando mapa...");
                             ctx.drawImage(backgroundImage, 0, 0, map.width, map.height);
 
                             console.log("dibujando salones...");
+                            console.log("Salones: " + salones);
                             salones.forEach(function (salon) {
                                 drawRooms(salon);
                             });
@@ -372,28 +373,68 @@
                         }
 
                         function main() {
-                                    /* 
-                                    console.log("generando canva...");
-                                    var map = initializeCanvas("MapaInteractivo", 400, 600);
-                                    var selectMap = document.querySelector("#MapaInteractivo");
-                                    var ctx = map.getContext("2d");
-                                    */
+                            clearCanvas();
 
 
-                                    /*
-                                    var backgroundImage = new Image();
-                                    backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
+                                        /* 
+                                        console.log("generando canva...");
+                                        var map = initializeCanvas("MapaInteractivo", 400, 600);
+                                        var selectMap = document.querySelector("#MapaInteractivo");
+                                        var ctx = map.getContext("2d");
+                                        */
+
+
+                                        /*
+                                        var backgroundImage = new Image();
+                                        backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
                                 */
 
 
-                                    /*
-                                     console.log("generando salones...");
-                                    const salones = [
-                                        { name: "Sala Cancilleres", x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
+                                        /*
+                                         console.log("generando salones...");
+                                        const salones = [
+                                            { name: "Sala Cancilleres", x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
                             { name: "Sala Embajadores", x: 42, y: 352, width: 105, height: 140, image: "{{asset('images/AmbassadorSchedules.jpg')}}" },
-                                    ];
-                                    */
+                                        ];
+                                        */
 
+                            console.log("cargando funciones interactivas...");
+                            selectMap.addEventListener("click", function (event) {
+                                const location = getCursorPosition(map, event);
+                                console.log("click [ " + location.x + ", " + location.y + " ]");
+
+                                var i = 0;
+                                var changed = false;
+
+                                salones.forEach(function (salon) {
+                                    salon.selected = false;
+
+                                    if (location.x >= salon.x && location.x <= salon.x + salon.width &&
+                                        location.y >= salon.y && location.y <= salon.y + salon.height) {
+                                        console.log("colisioón detectada");
+                                        var eventsMapImg = document.getElementById('eventsMap');
+                                        if (eventsMapImg) {
+                                            console.log("cambiando imagen a [" + salon.image + "]");
+                                            eventsMapImg.src = salon.image;
+                                        }
+                                        salon.selected = true;
+                                        console.log("estado del salon: "+salon.selected);
+                                        changed = true;
+                                        //clearCanvas(map);
+                                    } else if (i >= 1 && changed == false) {
+                                        console.log("Limpiando canvas...");
+                                        //clearCanvas(map);
+                                        backgroundImage.onload
+                                    }
+                                    i++;
+                                    console.log("i=" + i);
+                                });
+
+                                clearCanvas(map);
+                            });
+
+
+                            /*
                             backgroundImage.onload = function () {
                                 //ctx.drawImage(backgroundImage, 0, 0, map.width, map.height);
 
@@ -422,6 +463,7 @@
                                 });
                                 */
 
+                                /*
                                 console.log("cargando funciones interactivas...");
                                 selectMap.addEventListener("click", function (event) {
                                     const location = getCursorPosition(map, event);
@@ -452,6 +494,7 @@
                                     });
                                 });
                             }
+                                */
 
                         }
 
