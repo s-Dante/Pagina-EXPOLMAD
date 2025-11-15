@@ -83,13 +83,15 @@
                     <div class="row align-items-center" style="z-index: 1!important; margin: 0rem;">
 
                         <div class="px-5" style="width: auto; height: auto;">
-                            <div class="glassContainer" style="padding: 2rem; width: auto; height: auto;">
+                            <div class="glassContainer" style="padding: 2rem; width: 38rem; height: auto;">
                                 <!--     
-                                                <div style="z-index: 0; padding: 3rem;">
-                                                    <img src="{{asset('images/MapaInteractivo.svg')}}" style="width: 30rem;">
-                                                </div>
-                                            -->
+                                                            <div style="z-index: 0; padding: 3rem;">
+                                                                <img src="{{asset('images/MapaInteractivo.svg')}}" style="width: 30rem;">
+                                                            </div>
+                                                        -->
                                 <canvas id="MapaInteractivo"></canvas>
+                                <div class="glassContainer button-sm" id="MapaInteractivo-L1">L1</div>
+                                <div class="glassContainer button-sm" id="MapaInteractivo-L2">L2</div>
                             </div>
 
                             <div class="d-flex row justify-content-center align-items-center">
@@ -287,16 +289,29 @@
                         //Mapa interactivo
                         //inizializando variables
                         console.log("generando canva...");
-                        var map = initializeCanvas("MapaInteractivo", 400, 600);
+                        var map = initializeCanvas("MapaInteractivo", 340, 510);
                         var selectMap = document.querySelector("#MapaInteractivo");
                         var ctx = map.getContext("2d");
 
                         var backgroundImage = new Image();
                         backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
 
+                        var actual_level = 1;
                         var salones = [ //estas son las salas de conferencias y demás, tal vez el array crezca cuando se aplique la segunda planta
-                            { name: "Sala Cancilleres", selected: false, x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
-                            { name: "Sala Embajadores", selected: false, x: 42, y: 352, width: 105, height: 140, image: "{{asset('images/AmbassadorSchedules.jpg')}}" },
+                            {
+                                level: 1,
+                                salas: [
+                                    { name: "Sala Cancilleres", selected: false, x: 19, y: 22, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
+                                    { name: "Sala Embajadores", selected: false, x: 19, y: 290, width: 105, height: 140, image: "{{asset('images/AmbassadorSchedules.jpg')}}" }
+                                ]
+                            },
+                            {
+                                level: 2,
+                                salas: [
+                                    { name: "Sala 1", selected: false, x: 22, y: 19, width: 120, height: 105, image: "{{asset('images/CRONOGRAMA1.png')}}" },
+                                    { name: "Sala 2", selected: false, x: 290, y: 19, width: 140, height: 105, image: "{{asset('images/AmbassadorSchedules.jpg')}}" }
+                                ]
+                            }
                         ];
 
                         function getCursorPosition(canvas, event) {
@@ -338,8 +353,13 @@
 
                             console.log("dibujando salones...");
                             console.log("Salones: " + salones);
-                            salones.forEach(function (salon) {
-                                drawRooms(salon);
+                            salones.forEach(function (nivel) {
+                                if (nivel.level == actual_level) {
+                                    nivel.forEach(function (sala){
+                                        drawRooms(sala);
+                                    });
+                                }
+
                             });
 
                         }
@@ -376,27 +396,27 @@
                             clearCanvas();
 
 
-                                        /* 
-                                        console.log("generando canva...");
-                                        var map = initializeCanvas("MapaInteractivo", 400, 600);
-                                        var selectMap = document.querySelector("#MapaInteractivo");
-                                        var ctx = map.getContext("2d");
-                                        */
+                                                    /* 
+                                                    console.log("generando canva...");
+                                                    var map = initializeCanvas("MapaInteractivo", 400, 600);
+                                                    var selectMap = document.querySelector("#MapaInteractivo");
+                                                    var ctx = map.getContext("2d");
+                                                    */
 
 
-                                        /*
-                                        var backgroundImage = new Image();
-                                        backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
+                                                    /*
+                                                    var backgroundImage = new Image();
+                                                    backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
                                 */
 
 
-                                        /*
-                                         console.log("generando salones...");
-                                        const salones = [
-                                            { name: "Sala Cancilleres", x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
+                                                    /*
+                                                     console.log("generando salones...");
+                                                    const salones = [
+                                                        { name: "Sala Cancilleres", x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
                             { name: "Sala Embajadores", x: 42, y: 352, width: 105, height: 140, image: "{{asset('images/AmbassadorSchedules.jpg')}}" },
-                                        ];
-                                        */
+                                                    ];
+                                                    */
 
                             console.log("cargando funciones interactivas...");
                             selectMap.addEventListener("click", function (event) {
@@ -406,29 +426,37 @@
                                 var i = 0;
                                 var changed = false;
 
-                                salones.forEach(function (salon) {
-                                    salon.selected = false;
 
-                                    if (location.x >= salon.x && location.x <= salon.x + salon.width &&
-                                        location.y >= salon.y && location.y <= salon.y + salon.height) {
-                                        console.log("colisioón detectada");
-                                        var eventsMapImg = document.getElementById('eventsMap');
-                                        if (eventsMapImg) {
-                                            console.log("cambiando imagen a [" + salon.image + "]");
-                                            eventsMapImg.src = salon.image;
-                                        }
-                                        salon.selected = true;
-                                        console.log("estado del salon: "+salon.selected);
-                                        changed = true;
-                                        //clearCanvas(map);
-                                    } else if (i >= 1 && changed == false) {
-                                        console.log("Limpiando canvas...");
-                                        //clearCanvas(map);
-                                        backgroundImage.onload
+                                salones.forEach(function (nivel) {
+
+                                    if(nivel.level == actual_level){
+                                        
                                     }
-                                    i++;
-                                    console.log("i=" + i);
+                                    nivel.forEach(function (salon) {
+                                        salon.selected = false;
+
+                                        if (location.x >= salon.x && location.x <= salon.x + salon.width &&
+                                            location.y >= salon.y && location.y <= salon.y + salon.height) {
+                                            console.log("colisioón detectada");
+                                            var eventsMapImg = document.getElementById('eventsMap');
+                                            if (eventsMapImg) {
+                                                console.log("cambiando imagen a [" + salon.image + "]");
+                                                eventsMapImg.src = salon.image;
+                                            }
+                                            salon.selected = true;
+                                            console.log("estado del salon: " + salon.selected);
+                                            changed = true;
+                                            //clearCanvas(map);
+                                        } else if (i >= 1 && changed == false) {
+                                            console.log("Limpiando canvas...");
+                                            //clearCanvas(map);
+                                            backgroundImage.onload
+                                        }
+                                        i++;
+                                        console.log("i=" + i);
+                                    });
                                 });
+
 
                                 clearCanvas(map);
                             });
@@ -446,55 +474,55 @@
                                 });
                                 */
 
-                                /* 
-                                salones.forEach(function(salon) {
-                                    ctx.fillStyle = '#013940';
-                                    drawRoundedRect(ctx, salon.x, salon.y, salon.width, salon.height, 10, '#00afc4');
-                                    ctx.fillStyle = '#00afc4';
-                                    ctx.font = '16px Kodchasan';
-                                    ctx.textAlign = 'center';
-                                    ctx.textBaseline = 'middle';
-                                    var lines = salon.name.split(' ');
-                                    var lineHeight = 20;
-                                    var y = salon.y + salon.height / 2 - (lines.length - 1) * (lineHeight / 2);
-                                    for (var i = 0; i < lines.length; i++) {
-                                        ctx.fillText(lines[i], salon.x + salon.width / 2, y + i * lineHeight);
-                                    }
-                                });
-                                */
+                            /* 
+                            salones.forEach(function(salon) {
+                                ctx.fillStyle = '#013940';
+                                drawRoundedRect(ctx, salon.x, salon.y, salon.width, salon.height, 10, '#00afc4');
+                                ctx.fillStyle = '#00afc4';
+                                ctx.font = '16px Kodchasan';
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+                                var lines = salon.name.split(' ');
+                                var lineHeight = 20;
+                                var y = salon.y + salon.height / 2 - (lines.length - 1) * (lineHeight / 2);
+                                for (var i = 0; i < lines.length; i++) {
+                                    ctx.fillText(lines[i], salon.x + salon.width / 2, y + i * lineHeight);
+                                }
+                            });
+                            */
 
-                                /*
-                                console.log("cargando funciones interactivas...");
-                                selectMap.addEventListener("click", function (event) {
-                                    const location = getCursorPosition(map, event);
-                                    console.log("click [ " + location.x + ", " + location.y + " ]");
+                            /*
+                            console.log("cargando funciones interactivas...");
+                            selectMap.addEventListener("click", function (event) {
+                                const location = getCursorPosition(map, event);
+                                console.log("click [ " + location.x + ", " + location.y + " ]");
 
-                                    var i = 0;
-                                    var changed = false;
+                                var i = 0;
+                                var changed = false;
 
-                                    salones.forEach(function (salon) {
+                                salones.forEach(function (salon) {
 
-                                        if (location.x >= salon.x && location.x <= salon.x + salon.width &&
-                                            location.y >= salon.y && location.y <= salon.y + salon.height) {
-                                            console.log("colisioón detectada");
-                                            var eventsMapImg = document.getElementById('eventsMap');
-                                            if (eventsMapImg) {
-                                                console.log("cambiando imagen a [" + salon.image + "]");
-                                                eventsMapImg.src = salon.image;
-                                            }
-                                            salon.selected = true;
-                                            changed = true;
-                                        } else if (i >= 1 && changed == false) {
-                                            console.log("Limpiando canvas...");
-                                            clearCanvas(map);
-                                            backgroundImage.onload
+                                    if (location.x >= salon.x && location.x <= salon.x + salon.width &&
+                                        location.y >= salon.y && location.y <= salon.y + salon.height) {
+                                        console.log("colisioón detectada");
+                                        var eventsMapImg = document.getElementById('eventsMap');
+                                        if (eventsMapImg) {
+                                            console.log("cambiando imagen a [" + salon.image + "]");
+                                            eventsMapImg.src = salon.image;
                                         }
-                                        i++;
-                                        console.log("i=" + i);
-                                    });
+                                        salon.selected = true;
+                                        changed = true;
+                                    } else if (i >= 1 && changed == false) {
+                                        console.log("Limpiando canvas...");
+                                        clearCanvas(map);
+                                        backgroundImage.onload
+                                    }
+                                    i++;
+                                    console.log("i=" + i);
                                 });
-                            }
-                                */
+                            });
+                        }
+                            */
 
                         }
 
