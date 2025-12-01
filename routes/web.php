@@ -31,6 +31,7 @@ use App\Http\Controllers\VisitorsController;
 use App\Http\Controllers\TeacherCreatesTeamController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MundialController;
 use App\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 
@@ -45,6 +46,11 @@ use Illuminate\Support\Facades\Mail;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/mundial', [MundialController::class, 'index']);
+Route::resource('/mundial', MundialController::class, [
+    'index' =>  '/mundial.index',
+]);
 
 Route::get('/expo', [WelcomeController::class, 'index'])->name('expo.index');
 Route::get('/MapCI',[MapCIController::class,'index']);

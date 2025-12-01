@@ -104,8 +104,6 @@
 		const baseURL = "/EXPO/public/";
 	</script>
 
-    <script src="/EXPO/public/js/main.js" type="module"></script>
-	
 	<!--script type='module'>
 		//import { scene } from './js/main.js';
 		if (/Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))

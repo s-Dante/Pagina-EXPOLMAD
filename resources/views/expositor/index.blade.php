@@ -218,10 +218,7 @@
         </div>
     </div>
 
-    <div class="footer-card" style="left: 54%;" onclick="window.location.href = '{{route('expo.index')}}'">
-        <p class="footer-card-text">EXPO LMAD <i>EXPANDIENDO LA REALIDAD</i></p>
-        <img width="17" height="17" src="{{asset('images/icon-arrow-down.png')}}" class="arrow-footer"/>
-    </div>
+    @extends('Templates/footerPublic')
 </div>
 
 <!-- ✅ Generación del QR -->
