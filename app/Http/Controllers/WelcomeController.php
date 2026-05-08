@@ -26,21 +26,6 @@ class WelcomeController extends Controller
             ]
         ];
 
-        $talleres = [
-            ['image' => 'images/AmbassadorSchedules.jpg'],
-            ['image' => 'images/ChancellorsSchedules.jpg'],
-            ['image' => 'images/CRONOGRAMA1.png'],
-            ['image' => 'images/HORARIOS2_Cancilleres.png'],
-            ['image' => 'images/Room1.jpg'],
-            ['image' => 'images/TARDECINE.jpg'],
-            ['image' => 'images/AmbassadorSchedules.jpg'],
-            ['image' => 'images/ChancellorsSchedules.jpg'],
-            ['image' => 'images/CRONOGRAMA1.png'],
-            ['image' => 'images/HORARIOS2_Cancilleres.png'],
-            ['image' => 'images/Room1.jpg'],
-            ['image' => 'images/TARDECINE.jpg'],
-        ];
-
-        return view('welcome', compact('conferences', 'talleres'));
+        return view('welcome', compact('conferences'));
     }
 }
