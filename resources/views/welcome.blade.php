@@ -85,10 +85,10 @@
                         <div class="px-5" style="width: auto; height: auto;">
                             <div class="glassContainer" style="padding: 2rem; width: auto; height: auto;">
                                 <!--     
-                                            <div style="z-index: 0; padding: 3rem;">
-                                                <img src="{{asset('images/MapaInteractivo.svg')}}" style="width: 30rem;">
-                                            </div>
-                                        -->
+                                                            <div style="z-index: 0; padding: 3rem;">
+                                                                <img src="{{asset('images/MapaInteractivo.svg')}}" style="width: 30rem;">
+                                                            </div>
+                                                        -->
                                 <canvas id="MapaInteractivo"></canvas>
                             </div>
 
@@ -99,7 +99,8 @@
                         </div>
 
                         <div class="px-5" style="width: auto;">
-                            <img id="eventsMap" src="{{asset('images/AmbassadorSchedules.jpg')}}" style="width: 45rem; border-radius: 30px;" class="img-fluid">
+                            <img src="{{asset('images/AmbassadorSchedules.jpg')}}"
+                                style="width: 60rem; border-radius: 30px;" class="img-fluid">
                         </div>
 
                     </div>
@@ -124,25 +125,22 @@
                     <div class="row align-items-center justify-content-center" style="margin: 0rem;">
 
                         <div class="px-5" style="z-index: 1!important; width: auto;">
-                            <img id="conference-image" src="{{asset('images/CRONOGRAMA1.png')}}"
-                                style="width: 45rem; border-radius: 30px;" class="img-fluid">
+                            <img id="conference-image" src="{{asset('images/CRONOGRAMA1.png')}}" style="width: 45rem; border-radius: 30px;"
+                                class="img-fluid">
                         </div>
 
                         <div class="glassContainer"
                             style="z-index: 1!important; width: auto; height: auto; padding: 4rem; display: flex; flex-direction: column; align-items: center;">
 
                             @foreach ($conferences as $conference)
-                                <div class="glassContainer button-large glss-btn-large conference-button"
-                                    data-image="{{ asset($conference['image']) }}"
-                                    style="z-index: 1!important; cursor: pointer;">
+                                <div class="glassContainer button-large glss-btn-large conference-button" data-image="{{ asset($conference['image']) }}" style="z-index: 1!important; cursor: pointer;">
                                     <span>{{ $conference['conference'] }} - {{ $conference['speaker'] }}</span>
                                 </div>
                             @endforeach
 
                         </div>
 
-                        <img id="conference-background-image" class="confe-backimage"
-                            src="{{asset('images/CRONOGRAMA1.png')}}">
+                        <img id="conference-background-image" class="confe-backimage" src="{{asset('images/CRONOGRAMA1.png')}}">
 
                     </div>
 
@@ -191,37 +189,25 @@
                     <script>
                         window.addEventListener('load', function () {
                             const carousel = document.getElementById('imageCarousel');
-                            const images = carousel.getElementsByTagName('img');
                             const prevBtn = document.getElementById('prevBtn');
                             const nextBtn = document.getElementById('nextBtn');
 
-                            let currentIndex = 0;
+                            const images = Array.from(carousel.getElementsByTagName('img'));
                             const totalImages = images.length;
+                            const middle = Math.floor(totalImages / 2);
+                            let currentIndex = middle;
 
-                            function updateCarousel() {
+                            function updateCarousel(instant = false) {
                                 if (images.length === 0) return;
 
                                 const targetImage = images[currentIndex];
                                 const containerWidth = carousel.offsetWidth;
+                                const scrollAmount = targetImage.offsetLeft + (targetImage.offsetWidth / 2) - (containerWidth / 2) + 100;
 
-                                const scrollAmount = targetImage.offsetLeft + (targetImage.offsetWidth / 2) - (containerWidth / 2);
-
-                                carousel.scrollTo({
-                                    left: scrollAmount,
-                                    behavior: 'smooth'
-                                });
-
-                                for (let i = 0; i < totalImages; i++) {
-                                    const img = images[i];
+                                images.forEach((img, i) => {
                                     img.classList.remove('tallercard-image', 'tallercard-image-blurr');
-
                                     const dist = Math.abs(i - currentIndex);
-                                    // Check for distance, and also wrap-around cases for visibility
-                                    const isVisible = dist <= 1
-                                        || (currentIndex === 0 && i === totalImages - 1)
-                                        || (currentIndex === totalImages - 1 && i === 0);
-
-                                    if (isVisible) {
+                                    if (dist <= 1) {
                                         img.classList.add('tallercard-image');
                                     } else {
                                         img.classList.add('tallercard-image-blurr');
@@ -367,15 +353,16 @@
                                 ctx.fillText(lines[i], salon.x + salon.width / 2, y + i * lineHeight);
                             }
                         }
-
-                        function clearCanvas(canvas) {
-                            ctx = canvas.getContext("2d");
-                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        
+                        function clearCanvas() {
+                            //var ctx = canvas.getContext("2d");
+                            ctx.clearRect(0, 0, map.width, map.height);
 
                             console.log("dibujando mapa...");
                             ctx.drawImage(backgroundImage, 0, 0, map.width, map.height);
 
                             console.log("dibujando salones...");
+                            console.log("Salones: " + salones);
                             salones.forEach(function (salon) {
                                 drawRooms(salon);
                             });
@@ -411,28 +398,68 @@
                         }
 
                         function main() {
-                                    /* 
-                                    console.log("generando canva...");
-                                    var map = initializeCanvas("MapaInteractivo", 400, 600);
-                                    var selectMap = document.querySelector("#MapaInteractivo");
-                                    var ctx = map.getContext("2d");
-                                    */
+                            clearCanvas();
 
 
-                                    /*
-                                    var backgroundImage = new Image();
-                                    backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
+                                        /* 
+                                        console.log("generando canva...");
+                                        var map = initializeCanvas("MapaInteractivo", 400, 600);
+                                        var selectMap = document.querySelector("#MapaInteractivo");
+                                        var ctx = map.getContext("2d");
+                                        */
+
+
+                                        /*
+                                        var backgroundImage = new Image();
+                                        backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
                                 */
 
 
-                                    /*
-                                     console.log("generando salones...");
-                                    const salones = [
-                                        { name: "Sala Cancilleres", x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
+                                        /*
+                                         console.log("generando salones...");
+                                        const salones = [
+                                            { name: "Sala Cancilleres", x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
                             { name: "Sala Embajadores", x: 42, y: 352, width: 105, height: 140, image: "{{asset('images/AmbassadorSchedules.jpg')}}" },
-                                    ];
-                                    */
+                                        ];
+                                        */
 
+                            console.log("cargando funciones interactivas...");
+                            selectMap.addEventListener("click", function (event) {
+                                const location = getCursorPosition(map, event);
+                                console.log("click [ " + location.x + ", " + location.y + " ]");
+
+                                var i = 0;
+                                var changed = false;
+
+                                salones.forEach(function (salon) {
+                                    salon.selected = false;
+
+                                    if (location.x >= salon.x && location.x <= salon.x + salon.width &&
+                                        location.y >= salon.y && location.y <= salon.y + salon.height) {
+                                        console.log("colisioón detectada");
+                                        var eventsMapImg = document.getElementById('eventsMap');
+                                        if (eventsMapImg) {
+                                            console.log("cambiando imagen a [" + salon.image + "]");
+                                            eventsMapImg.src = salon.image;
+                                        }
+                                        salon.selected = true;
+                                        console.log("estado del salon: "+salon.selected);
+                                        changed = true;
+                                        //clearCanvas(map);
+                                    } else if (i >= 1 && changed == false) {
+                                        console.log("Limpiando canvas...");
+                                        //clearCanvas(map);
+                                        backgroundImage.onload
+                                    }
+                                    i++;
+                                    console.log("i=" + i);
+                                });
+
+                                clearCanvas(map);
+                            });
+
+
+                            /*
                             backgroundImage.onload = function () {
                                 //ctx.drawImage(backgroundImage, 0, 0, map.width, map.height);
 
@@ -463,7 +490,7 @@
 
                                 /*
                                 console.log("cargando funciones interactivas...");
-                                selectMap.addEventListener("click", function(event){
+                                selectMap.addEventListener("click", function (event) {
                                     const location = getCursorPosition(map, event);
                                     console.log("click [ " + location.x + ", " + location.y + " ]");
 
@@ -477,13 +504,22 @@
                                             console.log("colisioón detectada");
                                             var eventsMapImg = document.getElementById('eventsMap');
                                             if (eventsMapImg) {
-                                                console.log("cambiando imagen a ["+salon.image+"]");
+                                                console.log("cambiando imagen a [" + salon.image + "]");
                                                 eventsMapImg.src = salon.image;
                                             }
+                                            salon.selected = true;
+                                            changed = true;
+                                        } else if (i >= 1 && changed == false) {
+                                            console.log("Limpiando canvas...");
+                                            clearCanvas(map);
+                                            backgroundImage.onload
                                         }
+                                        i++;
+                                        console.log("i=" + i);
                                     });
                                 });
                             }
+                                */
 
                         }
 
