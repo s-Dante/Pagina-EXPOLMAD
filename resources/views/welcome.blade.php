@@ -99,7 +99,7 @@
                         </div>
 
                         <div class="px-5" style="width: auto;">
-                            <img src="{{asset('images/AmbassadorSchedules.jpg')}}"
+                            <img id="eventsMap" src="{{asset('images/AmbassadorSchedules.jpg')}}"
                                 style="width: 60rem; border-radius: 30px;" class="img-fluid">
                         </div>
 
