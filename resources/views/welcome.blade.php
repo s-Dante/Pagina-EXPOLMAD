@@ -124,22 +124,25 @@
                     <div class="row align-items-center justify-content-center" style="margin: 0rem;">
 
                         <div class="px-5" style="z-index: 1!important; width: auto;">
-                            <img id="conference-image" src="{{asset('images/CRONOGRAMA1.png')}}" style="width: 45rem; border-radius: 30px;"
-                                class="img-fluid">
+                            <img id="conference-image" src="{{asset('images/CRONOGRAMA1.png')}}"
+                                style="width: 45rem; border-radius: 30px;" class="img-fluid">
                         </div>
 
                         <div class="glassContainer"
                             style="z-index: 1!important; width: auto; height: auto; padding: 4rem; display: flex; flex-direction: column; align-items: center;">
 
                             @foreach ($conferences as $conference)
-                                <div class="glassContainer button-large glss-btn-large conference-button" data-image="{{ asset($conference['image']) }}" style="z-index: 1!important; cursor: pointer;">
+                                <div class="glassContainer button-large glss-btn-large conference-button"
+                                    data-image="{{ asset($conference['image']) }}"
+                                    style="z-index: 1!important; cursor: pointer;">
                                     <span>{{ $conference['conference'] }} - {{ $conference['speaker'] }}</span>
                                 </div>
                             @endforeach
 
                         </div>
 
-                        <img id="conference-background-image" class="confe-backimage" src="{{asset('images/CRONOGRAMA1.png')}}">
+                        <img id="conference-background-image" class="confe-backimage"
+                            src="{{asset('images/CRONOGRAMA1.png')}}">
 
                     </div>
 
@@ -323,29 +326,16 @@
                         //Mapa interactivo
                         //inizializando variables
                         console.log("generando canva...");
-                        var map = initializeCanvas("MapaInteractivo", 340, 510);
+                        var map = initializeCanvas("MapaInteractivo", 400, 600);
                         var selectMap = document.querySelector("#MapaInteractivo");
                         var ctx = map.getContext("2d");
 
                         var backgroundImage = new Image();
                         backgroundImage.src = "{{asset('images/MapaInteractivo.svg')}}";
 
-                        var actual_level = 1;
                         var salones = [ //estas son las salas de conferencias y demás, tal vez el array crezca cuando se aplique la segunda planta
-                            {
-                                level: 1,
-                                salas: [
-                                    { name: "Sala Cancilleres", selected: false, x: 19, y: 22, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
-                                    { name: "Sala Embajadores", selected: false, x: 19, y: 290, width: 105, height: 140, image: "{{asset('images/AmbassadorSchedules.jpg')}}" }
-                                ]
-                            },
-                            {
-                                level: 2,
-                                salas: [
-                                    { name: "Sala 1", selected: false, x: 22, y: 19, width: 120, height: 105, image: "{{asset('images/CRONOGRAMA1.png')}}" },
-                                    { name: "Sala 2", selected: false, x: 290, y: 19, width: 140, height: 105, image: "{{asset('images/AmbassadorSchedules.jpg')}}" }
-                                ]
-                            }
+                            { name: "Sala Cancilleres", selected: false, x: 42, y: 51, width: 105, height: 120, image: "{{asset('images/CRONOGRAMA1.png')}}" },
+                            { name: "Sala Embajadores", selected: false, x: 42, y: 352, width: 105, height: 140, image: "{{asset('images/AmbassadorSchedules.jpg')}}" },
                         ];
 
                         function getCursorPosition(canvas, event) {
@@ -378,9 +368,9 @@
                             }
                         }
 
-                        function clearCanvas() {
-                            //var ctx = canvas.getContext("2d");
-                            ctx.clearRect(0, 0, map.width, map.height);
+                        function clearCanvas(canvas) {
+                            ctx = canvas.getContext("2d");
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                             console.log("dibujando mapa...");
                             ctx.drawImage(backgroundImage, 0, 0, map.width, map.height);
@@ -454,22 +444,22 @@
                                 });
                                 */
 
-                            /* 
-                            salones.forEach(function(salon) {
-                                ctx.fillStyle = '#013940';
-                                drawRoundedRect(ctx, salon.x, salon.y, salon.width, salon.height, 10, '#00afc4');
-                                ctx.fillStyle = '#00afc4';
-                                ctx.font = '16px Kodchasan';
-                                ctx.textAlign = 'center';
-                                ctx.textBaseline = 'middle';
-                                var lines = salon.name.split(' ');
-                                var lineHeight = 20;
-                                var y = salon.y + salon.height / 2 - (lines.length - 1) * (lineHeight / 2);
-                                for (var i = 0; i < lines.length; i++) {
-                                    ctx.fillText(lines[i], salon.x + salon.width / 2, y + i * lineHeight);
-                                }
-                            });
-                            */
+                                /* 
+                                salones.forEach(function(salon) {
+                                    ctx.fillStyle = '#013940';
+                                    drawRoundedRect(ctx, salon.x, salon.y, salon.width, salon.height, 10, '#00afc4');
+                                    ctx.fillStyle = '#00afc4';
+                                    ctx.font = '16px Kodchasan';
+                                    ctx.textAlign = 'center';
+                                    ctx.textBaseline = 'middle';
+                                    var lines = salon.name.split(' ');
+                                    var lineHeight = 20;
+                                    var y = salon.y + salon.height / 2 - (lines.length - 1) * (lineHeight / 2);
+                                    for (var i = 0; i < lines.length; i++) {
+                                        ctx.fillText(lines[i], salon.x + salon.width / 2, y + i * lineHeight);
+                                    }
+                                });
+                                */
 
                                 /*
                                 console.log("cargando funciones interactivas...");
@@ -477,10 +467,10 @@
                                     const location = getCursorPosition(map, event);
                                     console.log("click [ " + location.x + ", " + location.y + " ]");
 
-                                var i = 0;
-                                var changed = false;
+                                    var i = 0;
+                                    var changed = false;
 
-                                salones.forEach(function (salon) {
+                                    salones.forEach(function (salon) {
 
                                         if (location.x >= salon.x && location.x <= salon.x + salon.width &&
                                             location.y >= salon.y && location.y <= salon.y + salon.height) {
@@ -616,13 +606,13 @@
         </script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const conferenceButtons = document.querySelectorAll('.conference-button');
                 const conferenceImage = document.getElementById('conference-image');
                 const conferenceBackgroundImage = document.getElementById('conference-background-image');
 
                 conferenceButtons.forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         // Handle selection state
                         conferenceButtons.forEach(btn => {
                             btn.classList.remove('button-large-selected');

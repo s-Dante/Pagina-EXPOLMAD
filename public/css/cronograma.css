@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan&display=swap');
 
 .header-expo-3
 {
@@ -254,7 +255,7 @@ body{
 }
 
 .tallercard-image-blurr{
-    width: 30rem;
+    width: 22rem;
     height: auto;
     border-radius: 4rem;
     opacity: 0.3;
@@ -357,4 +358,57 @@ body{
 
 .glss-btn-mid::after{
     border-radius: 2rem;
+}
+
+#imageCarousel {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+#imageCarousel::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.workshop-card-shrinking {
+    animation: shrink 0.3s ease-in-out forwards;
+}
+
+.workshop-card-growing {
+    animation: grow 0.3s ease-in-out forwards;
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#conference-image, #conference-background-image {
+    transition: opacity 0.4s ease-in-out;
+}
+.image-fade-out {
+    opacity: 0;
+}
+
+canvas{
+ z-index: 1 !important;
 }
